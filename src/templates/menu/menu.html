@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Liste des Menus{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                <div class="bg-gradient-warning shadow-primary border-radius-lg pt-4 pb-3">
+                    <h6 class="text-white text-capitalize ps-3">Liste des menus</h6>
+                </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Plat</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for menu in menus %}
+                            <tr>
+                                <td>{{ menu.date }}</td>
+                                <td>{{ menu.plat }}</td>
+                                <td class="text-center">
+                                    <a href="{% url 'restaurent:menu_edit' menu.id %}" class="badge badge-sm bg-gradient-success">Modifier</a>
+                                    <a href="{% url 'restaurent:menu_delete' menu.id %}" class="badge badge-sm bg-gradient-danger">Supprimer</a>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="3" class="text-center">Aucun menu disponible</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

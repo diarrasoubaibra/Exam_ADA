@@ -1,0 +1,32 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.db
+*.sqlite3
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+
+# VSCode
+.vscode/
+
+# Bootstrap (if you're using Bootstrap via npm)
+node_modules/
+
+# Environment
+.env
+*.env
+env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# PyCharm
+.idea/

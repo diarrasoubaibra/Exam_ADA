@@ -1,0 +1,31 @@
+
+{% load static %}
+
+<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+    <div class="container-fluid py-1 px-3">
+
+
+      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <ul class="navbar-nav  justify-content-start">
+            <li class="nav-item d-flex align-items-center">
+                {% if request.resolver_match.url_name == 'menu_list' %}
+                    <a class="btn btn-outline-warning btn-sm mb-0 me-3" href="{% url 'restaurent:menu_add' %}">Ajouter un menu</a>
+                {% elif request.resolver_match.url_name == 'plat_list' %}
+                    <a class="btn btn-outline-warning btn-sm mb-0 me-3" href="{% url 'restaurent:plat_add' %}">Ajouter un plat</a>
+                {% endif %}
+            </li>
+        </ul>
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="input-group input-group-outline">
+            <label class="form-label">Recherche par nom</label>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+        <ul class="navbar-nav  justify-content-end">
+          <li class="nav-item d-flex align-items-center">
+            <button class="btn btn-outline-primary btn-sm mb-0 me-3">Recherche</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
