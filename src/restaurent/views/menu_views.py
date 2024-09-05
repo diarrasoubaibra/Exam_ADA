@@ -17,24 +17,21 @@ def menu_form(request, id=None):
         menu = get_object_or_404(Menu, id=id)
         form_title = "Modifier le menu"
     else:
-        plat = None
+        menu = None
         form_title = "Ajouter un menu"
     
     if request.method == 'POST':
-        form = MenuForm(request.POST, instance=plat)
+        form = MenuForm(request.POST, instance=menu)
         if form.is_valid():
             form.save()
             return redirect('restaurent:menu_list')
     else:
-        form = MenuForm(instance=plat)
+        form = MenuForm(instance=menu)
     
     return render(request, 'menu/menu_form.html', {'form': form, 'form_title': form_title})
 
 
-
 def menu_delete(request, id):
     menu = get_object_or_404(Menu, id=id)
-    if request.method == 'POST':
-        menu.delete()
-        return redirect('menu_list')
-    #return render(request, 'menu_confirm_delete.html', {'menu': menu})
+    menu.delete()
+    return redirect('restaurent:plat_list')

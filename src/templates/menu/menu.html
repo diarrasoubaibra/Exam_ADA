@@ -24,7 +24,7 @@
                         <tbody>
                             {% for menu in menus %}
                             <tr>
-                                <td>{{ menu.date }}</td>
+                                <td>{{ menu.created_at }}</td>
                                 <td>{{ menu.plat }}</td>
                                 <td class="text-center">
                                     <a href="{% url 'restaurent:menu_edit' menu.id %}" class="badge badge-sm bg-gradient-success">Modifier</a>
